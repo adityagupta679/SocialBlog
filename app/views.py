@@ -21,6 +21,6 @@ def feedback():
 	params["Name"]="Aadi"
 	params["title"]="Feedback"
 	if form.validate_on_submit():
-		flash("Feedback received. We will get back to you at %s"%(form.email.data))
+		flash("Feedback received. We will get back to you at %s ASAP"%(form.email.data))
 		return redirect(url_for('index'))
 	return render_template('feedback.html',params=params,form=form)

@@ -41,19 +41,22 @@ Social Blog</a>
 {% endblock %}
 
 {% block content %}
-<div class='messages'>
+
 {% with messages = get_flashed_messages() %}
 
 {% if messages %}
+<div class='messages'>
+<span style="color:blue;">
 <ul>
 {% for message in messages %}
 	<li>{{ message }} </li>
 
 {% endfor %}
 </ul>
+</span>
+</div>
 {% endif %}
 {% endwith %}
-</div>
 
 
 <div class="container">
