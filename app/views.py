@@ -52,7 +52,7 @@ def display_feedbacks():
 	params["Name"]="Aadi"
 	params["title"]="Feedbacks Received"
 	feedbacks=models.Feedback.query.order_by('timestamp desc').all()
-	return render_template('feedback_display.html',feedbacks = feedbacks,params = params)
+	return render_template('admin/feedback_display.html',feedbacks = feedbacks,params = params)
 
 
 	

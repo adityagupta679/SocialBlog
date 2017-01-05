@@ -8,14 +8,14 @@
 </div>
 </div>
 
-<div class="FeedbackForm">
-	
-<form action="" method="POST" name='feedback'>
+<div class="container">
+
+<form action="" method="POST" name='feedback' >
 
 {{ form.hidden_tag() }}
-{{	render_field(form.email,size=50)  }}
-{{	render_field(form.feedback,rows=5,cols=50)  }}
-{{ form.submit() }}
+{{	render_field(form.email,size=50,class="form-control",placeholder="example@mail.com")  }}
+{{	render_field(form.feedback,rows=5,cols=50,placeholder="Great Work !! I look forward to using this site for all my Social Blogging needs." , class="form-control")  }}
+{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
 
 
 
