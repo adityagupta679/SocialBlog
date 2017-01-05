@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+
+{% block page_content %}
+
+ <h1 class="page-header">Feedbacks</h1>
+          <div class="table-responsive col-xs-12">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>Number</th>
+                  <th>Email</th>
+                  <th>Feedback</th>
+                  <th>Timestamp</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% if feedbacks %}
+              	{% for feedback in feedbacks %}
+                <tr>
+                  <td>{{ loop.index }}</td>
+                  <td>{{ feedback['email'] }}</td>
+                  <td>{{ feedback['feedback'] }}</td>
+                  <td>{{ feedback['timestamp'] }}</td>
+                  
+                </tr>
+                {% endfor %}
+                {% else %}
+                	<tr> No feedbacks received.</tr>>
+			  {% endif %}
+
+{% endblock %}
