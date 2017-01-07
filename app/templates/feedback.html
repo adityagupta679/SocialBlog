@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from '_macros.html'  import render_field %}
+{% from '_macros.html'  import render_field_with_errors,render_field %}
 {% block page_content %}
 
 <div class="container">
@@ -13,8 +13,8 @@
 <form action="" method="POST" name='feedback' >
 
 {{ form.hidden_tag() }}
-{{	render_field(form.email,size=50,class="form-control",placeholder="example@mail.com")  }}
-{{	render_field(form.feedback,rows=5,cols=50,placeholder="Great Work !! I look forward to using this site for all my Social Blogging needs." , class="form-control")  }}
+{{	render_field_with_errors(form.email,size=50,class="form-control",placeholder="example@mail.com")  }}
+{{	render_field_with_errors(form.feedback,rows=5,cols=50,placeholder="Great Work !! I look forward to using this site for all my Social Blogging needs." , class="form-control")  }}
 {{ form.submit(class="btn btn-lg btn-primary btn-block") }}
 
 

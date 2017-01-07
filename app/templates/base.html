@@ -8,7 +8,8 @@ type="image/x-icon">
 {% endblock %}
 
 {% block title %}
-		{% if params["title"] %}
+
+		{% if params and params["title"] %}
 
 {{ params["title"] }} - {% endif %}Social Blog
 {% endblock %}
@@ -34,6 +35,15 @@ Social Blog</a>
 <li><a href="#">Posts</a></li>
 <li><a href="{{ url_for('feedback') }}">FeedBack</a></li>
 </ul>
+
+	<ul class="nav navbar-nav navbar-right">
+{% if current_user.is_authenticated %}
+<li><a href="{{ url_for_security('logout') }}">Sign Out</a></li>
+{% else %}
+<li><a href="{{ url_for_security('login') }}">Sign In</a></li>
+{% endif %}
+</ul>
+
 </div>
 </div>
 </div>
@@ -43,23 +53,7 @@ Social Blog</a>
 {% block content %}
 {% block messages %}
 
-{% with messages = get_flashed_messages() %}
-
-{% if messages %}
-<div class='messages'>
-<span style="color:blue;">
-<ul>
-{% for message in messages %}
-	<li>{{ message }} </li>
-
-{% endfor %}
-</ul>
-</span>
-</div>
-{% endif %}
-{% endwith %}
-
-
+{% include '_messages.html' %}
 
 {% endblock %}	
 

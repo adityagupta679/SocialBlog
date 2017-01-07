@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% from "_macros.html" import render_field_with_errors, render_field %}
+
+{% block page_content %}
+
+<div class="container">
+	<div class="page-header">
+
+<h1>Register</h1>
+</div>
+</div>
+
+<form action="{{ url_for_security('register') }}" method="POST" name="register_user_form">
+  {{ register_user_form.hidden_tag() }}
+  {{ render_field_with_errors(register_user_form.email,class="form-control") }}
+  {{ render_field_with_errors(register_user_form.password,class="form-control") }}
+  {% if register_user_form.password_confirm %}
+    {{ render_field_with_errors(register_user_form.password_confirm,class="form-control") }}
+  {% endif %}
+  {{ render_field(register_user_form.submit,class="btn btn-lg btn-primary btn-block") }}
+</form>
+
+{% endblock %}
+
