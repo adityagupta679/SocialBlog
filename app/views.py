@@ -2,7 +2,8 @@ from app import app,db,models
 from flask import render_template,redirect,flash,url_for
 from .forms import FeedBackForm
 
-from models import Feedback
+from flask_security import login_required
+from models import Feedback,User,Role
 
 import datetime
 
@@ -47,6 +48,7 @@ def feedback():
 # admin route to see the feedbacks Auth Required
 
 @app.route('/admin/feedbacks')
+@login_required
 def display_feedbacks():
 	params={}
 	params["Name"]="Aadi"
